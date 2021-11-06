@@ -1,5 +1,6 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
 import {Paciente} from './paciente.model';
+import {Cita} from './cita.model';
 
 @model()
 export class Medico extends Entity {
@@ -30,6 +31,9 @@ export class Medico extends Entity {
 
   @hasMany(() => Paciente)
   pacientes: Paciente[];
+
+  @hasMany(() => Cita)
+  citas: Cita[];
 
   constructor(data?: Partial<Medico>) {
     super(data);
